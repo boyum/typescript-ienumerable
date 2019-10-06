@@ -17,7 +17,7 @@ export default class Collection<T> implements ICollection<T> {
   Add(item: T): void {
     this.items.push(item);
   }
-  
+
   Clear(): void {
     this.items.length = 0;
   }
@@ -26,8 +26,17 @@ export default class Collection<T> implements ICollection<T> {
     return this.items.includes(item);
   }
 
-  CopyTo(array: T[], arrayIndex: number): void {
-    throw new Error('Method not implemented.');
+  CopyTo(array: T[], arrayIndex: number): Array<T> {
+    if (arrayIndex < 0) { throw new Error('Array index must be greater than 0'); }
+
+    const addToEndOfArray = arrayIndex >= array.length;
+    if (addToEndOfArray) {
+      array = [...array, ...this.items];
+    } else {
+      array = [...array.slice(0, arrayIndex), ...this.items, ...array.slice(arrayIndex)]
+    }
+
+    return array;
   }
 
   Get(index: number): T {
