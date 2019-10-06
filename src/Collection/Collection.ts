@@ -28,7 +28,7 @@ export default class Collection<T>
     throw new Error('Method not implemented.');
   }
   Get(index: number): T {
-    throw new Error('Method not implemented.');
+    return this.items[index];
   }
   Remove(item: T): boolean {
     throw new Error('Method not implemented.');
