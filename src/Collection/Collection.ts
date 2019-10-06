@@ -16,7 +16,7 @@ export default class Collection<T>
 
   //#region Methods
   Add(item: T): void {
-    throw new Error('Method not implemented.');
+    this.items.push(item);
   }
   Clear(): void {
     throw new Error('Method not implemented.');
