@@ -19,7 +19,7 @@ export default class Collection<T>
     this.items.push(item);
   }
   Clear(): void {
-    throw new Error('Method not implemented.');
+    this.items.length = 0;
   }
   Contains(item: T): boolean {
     throw new Error('Method not implemented.');
