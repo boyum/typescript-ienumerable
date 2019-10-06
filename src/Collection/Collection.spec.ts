@@ -47,7 +47,7 @@ test('Remove() removes one (1) item from the collection', () => {
 
 test('Remove() does nothing if the collection is empty', () => {
   expect(collection.Count).toBe(0);
-  expect(collection.Remove('item')).not.toThrowError();
+  expect(collection.Remove.bind(collection, 'item')).not.toThrowError();
 });
 
 test('Remove() returns true if it removes an item that exists', () => {
@@ -74,7 +74,7 @@ test('Clear() removes all items in a collection', () => {
 
 test('Clear() does nothing if the collection is empty', () => {
   expect(collection.Count).toBe(0);
-  expect(collection.Clear()).not.toThrowError();
+  expect(collection.Clear.bind(collection)).not.toThrowError();
 });
 
 test('Get() returns the item at the given position', () => {

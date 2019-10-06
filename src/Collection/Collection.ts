@@ -31,7 +31,14 @@ export default class Collection<T>
     return this.items[index];
   }
   Remove(item: T): boolean {
-    throw new Error('Method not implemented.');
+    const collectionIsEmpty = this.Count === 0;
+    const collectionDoesNotContainItem = !this.items.includes(item);
+    if (collectionIsEmpty || collectionDoesNotContainItem) { return false; }
+
+    const indexOfItem = this.items.indexOf(item);
+    this.items.splice(indexOfItem, 1);
+    
+    return true;
   }
 
   *[Symbol.iterator](): Iterator<T> {
