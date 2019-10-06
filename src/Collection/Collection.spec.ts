@@ -1,6 +1,5 @@
 import ICollection from './ICollection';
 import Collection from './Collection';
-import { exportNamespaceSpecifier } from '@babel/types';
 
 let collection: ICollection<string>;
 
