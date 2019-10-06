@@ -1,5 +1,3 @@
-import IEnumerable from '../Enumerable/IEnumerable';
-
 export default interface ICollection<T> {
   Count: number;
   IsReadOnly: boolean;
