@@ -84,3 +84,22 @@ test('Get() returns the item at the given position', () => {
 
   expect(collection.Get(1)).toBe('1');
 });
+
+test('CopyTo() adds the collection\'s items to the given array at the given position', () => {
+  const array1 = ['0', '1', '2', '3'];
+  const array2 = ['0', '1', '2', '3'];
+
+  const initialLength = array1.length;
+
+  collection.Add('a');
+  collection.Add('b');
+  collection.Add('c');
+
+  collection.CopyTo(array1, array1.length);
+  collection.CopyTo(array2, 1);
+
+  expect(array1[initialLength]).toBe(collection.Get(0));
+  expect(array2[1]).toBe(collection.Get(0));
+
+  expect(array1.length).toBe(initialLength + collection.Count);
+});
