@@ -22,7 +22,7 @@ export default class Collection<T>
     this.items.length = 0;
   }
   Contains(item: T): boolean {
-    throw new Error('Method not implemented.');
+    return this.items.includes(item);
   }
   CopyTo(array: T[], arrayIndex: number): void {
     throw new Error('Method not implemented.');
